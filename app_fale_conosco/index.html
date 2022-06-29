@@ -13,7 +13,7 @@
       <div class="container">
 
         <div class="py-3 text-center">
-            <img src="/assets/logo.png" class="d-block mx-auto mb-2" width="100" height="100">
+            <img src="assets/logo.png" class="d-block mx-auto mb-2" width="100" height="100">
             <h2 class="font-weight-bold">Fale Conosco</h2>
             <p>Envie para nós suas dúvidas, reclamações ou sugestões!</p>
         </div>
@@ -21,20 +21,20 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card-body font-weight-bold">
-                    <form action="" method="">
+                    <form action="processa_envio.php" method="post">
                         <div class="form-group">
                             <label for="nome">Nome Completo</label>
-                            <input type="text" class="form-control" id="nome" autofocus required>
+                            <input name="nome" id="nome" type="text" class="form-control" autofocus required>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="intencao">Você deseja:</label>
-                                    <select class="form-control" id="intencao">
-                                        <option>Tirar dúvidas</option>
-                                        <option>Reclamar</option>
-                                        <option>Sugerir</option>
+                                    <select class="form-control" id="intencao" name="intencao">
+                                        <option value ="1">Tirar dúvidas</option>
+                                        <option value = "2">Reclamar</option>
+                                        <option value = "3">Sugerir</option>
                                     </select>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="sobre">Sobre:</label>
-                                    <select class="form-control" id="sobre">
+                                    <select name="sobre" id="sobre" class="form-control">
                                         <option>Nossos serviços</option>
                                         <option>Nosso atendimento</option>
                                         <option>Nossos produtos</option>
@@ -59,7 +59,7 @@
 
                         <div class="form-group">
                             <label for="assunto">Assunto</label>
-                            <input name="assunto" type="text" class="form-control" id="assunto" placeholder="Assunto do e-mail" required>
+                            <input name="assunto" id="assunto" type="text" class="form-control" placeholder="Assunto do e-mail" required>
                         </div>
 
                         <div class="form-group">
