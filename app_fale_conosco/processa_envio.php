@@ -15,7 +15,6 @@
         private $email = null;
         private $assunto = null;
         private $mensagem = null;
-        private $duvida = null;
         public $status = [
             'intencao_status' => null,
             'resposta_status' => ''
@@ -45,7 +44,6 @@
     $chamado -> __set('email', $_POST['email']);
     $chamado -> __set('assunto', $_POST['assunto']);
     $chamado -> __set('mensagem', $_POST['mensagem']);
-    $chamado -> __set('duvida', $_POST['duvida']);
 
     if(!$chamado -> mensagemValida()) {
         echo 'MENSAGEM INVÁLIDA';
@@ -60,15 +58,15 @@
         $mail->isSMTP();                                                //Send using SMTP
         $mail->Host       = 'smtp-mail.outlook.com';                    //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                       //Enable SMTP authentication
-        $mail->Username   = 'phptestewb@outlook.com';                   //SMTP username
-        $mail->Password   = 'W123456&*';                                //SMTP password
+        $mail->Username   = 'phptestewb@outlook.com';  //SMTP username
+        $mail->Password   = 'W123456&*';            //SMTP password
         $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
         $mail->CharSet    = 'UTF-8';
 
         //Recipients
-        $mail->setFrom('phptestewb@outlook.com', 'Fale Conosco');
-        $mail->addAddress($chamado->__get('email'),$chamado->__get('nome'));
+        $mail->setFrom('phptestewb@outlook.com', $chamado->__get('email'));
+        $mail->addAddress('phptestewb@outlook.com', 'Fale Conosco');
         //$mail->addReplyTo('info@example.com', 'Information');
         //$mail->addCC('cc@example.com');
         //$mail->addBCC('bcc@example.com');
@@ -122,10 +120,6 @@
 
                             <p class="text-center font-weight-bold">
                             <?= $chamado->status['resposta_status'] ?>
-                            </p>
-
-                            <p class="text-center font-weight-bold">
-                            DUVIDA
                             </p>
 
                             <div class="row">
